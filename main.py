@@ -3,24 +3,30 @@ from pygame.locals import *
 import numpy as np
 import sys
 
-
-class py_calc:
-    def __init__(self, master):
-        super().__init__(master)
-
-        self.master = master
+WIDTH = 300
+HEIGHT = 340
 
 
-def main():
-    pg.init()
-    screen = pg.display.set_mode((300, 340))  # Window generation
-    screen.fill("gray")
-
-    while 1:
+class pg_calc:
+    def __init__(self):
+        pg.init()
         pg.display.set_caption("Sample")
-        pg.display.update()
+        screen = pg.display.set_mode((WIDTH, HEIGHT))
 
-    # Event processing
+        running = True
+        while running:
+            self.update()
+            self.draw(screen)
+            pg.display.update()
+            self.hundler()
+
+    def update(self):
+        pass
+
+    def draw(self, screen):
+        screen.fill("gray")
+
+    def hundler(self):
         for event in pg.event.get():
             if event.type == QUIT:
                 pg.quit()
@@ -28,4 +34,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    pg_calc()
