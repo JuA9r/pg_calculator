@@ -18,7 +18,7 @@ class pg_calc:
             self.update()
             self.draw(screen)
             pg.display.update()
-            self.hundler()
+            self.handler()
 
     def update(self):
         pass
@@ -26,11 +26,35 @@ class pg_calc:
     def draw(self, screen):
         screen.fill("gray")
 
-    def hundler(self):
+    def handler(self):
         for event in pg.event.get():
             if event.type == QUIT:
                 pg.quit()
                 sys.exit()
+
+
+class Button:
+    def __init__(self, x, y, w, h, text=""):
+        self.image = pg.Surface(x, y)
+        self.rect = pg.Rect(x, y, w, h)
+        self.color = "white"
+        self.text = text
+        self.text_surface = font.reader(text, True, self.color)
+        self.act = False
+
+    def update(self):
+        width = ...
+        self.rect.w = width
+        ...
+
+    def draw(self, screen):
+        pg.draw.rect(screen, self.color, self.rect)
+        ...
+
+
+class txt_box:
+    def __init__(self):
+        pass
 
 
 if __name__ == "__main__":
